@@ -173,6 +173,12 @@ td.clk{cursor:pointer}td.clk:hover{background:var(--color-tint-hover)}td.clk.sel
 .ccard details[open] summary::after{content:"−"}
 .ccard .mk{min-width:3.6rem}
 .ccard .cr{font-size:.95rem}
+a.klink{color:inherit;text-decoration:underline;text-underline-offset:3px}
+a.klink .mk{text-decoration:underline;text-underline-offset:3px}
+a.klink:hover{background:var(--color-tint-hover)}
+.ccard a.krow{display:flex;gap:.7rem;align-items:center;padding:.6rem 0;border-top:1px solid var(--color-line);color:var(--color-ink);text-decoration:none}
+.ccard a.krow .cr{text-decoration:underline;text-underline-offset:2px}
+.ccard a.krow::after{content:"↗";margin-left:auto;font-weight:700;color:var(--color-brand)}
 .cd{padding:0 0 .8rem;font-size:.92rem}
 .hintline{font-size:.9rem;color:var(--color-ink-2);margin:.5rem .1rem 0}
 .fn{font-size:.9rem;color:var(--color-ink-2);margin:.6rem 0 0}
@@ -307,7 +313,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 
 <section id="porownanie">
 <h2>Porównanie z rozwiązaniami w innych państwach</h2>
-<p class="sub">Kliknij komórkę tabeli (na telefonie: wiersz), aby zobaczyć uwagi, stronę programu i źródła z odnośnikami.</p>
+<p class="sub">Kliknij komórkę tabeli (na telefonie: wiersz), aby zobaczyć uwagi, stronę programu i źródła z odnośnikami. Wiersz „Krajowy katalog aplikacji” otwiera spis aplikacji danego kraju.</p>
 <div class="tbl-scroll"><table>
 <thead><tr><th scope="col">Kryterium</th>
 <th scope="col" class="pl"><img src="data:image/png;base64,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" alt="">Polska<span class="prog">PAZ</span></th>
@@ -505,6 +511,8 @@ const REFS={
  9:["NHS,","https://www.nhs.uk/apps-library/","The NHS Apps Library has closed"]
 };
 const PROG={PL:["Portfel Aplikacji Zdrowotnych (MZ, gov.pl)",U.main,"https://web.archive.org/web/20260923212212/https://www.gov.pl/web/zdrowie/portfel-aplikacji-zdrowotnych"],DE:["DiGA-Verzeichnis (BfArM)","https://diga.bfarm.de"],BE:["mHealthBelgium","https://mhealthbelgium.be"],FR:["PECAN (HAS)","https://www.has-sante.fr/jcms/p_3376633/fr/dispositifs-medicaux-numeriques-la-prise-en-charge-anticipee"],UK:["NICE Evidence Standards Framework","https://www.nice.org.uk/corporate/ecd7"]};
+const KROW="Krajowy katalog aplikacji";
+const KAT={PL:["Lista aplikacji w Portfelu (MZ, archiwum)","https://web.archive.org/web/20260923212253/https://www.gov.pl/web/zdrowie/aplikacja-certyfikowana-mz-w-portfelu-aplikacji-zdrowotnych1"],DE:["DiGA-Verzeichnis (BfArM)","https://diga.bfarm.de/de/verzeichnis"],BE:["Aplikacje w mHealthBelgium","https://mhealthbelgium.be/apps"],FR:["Lista usług w katalogu Mon espace santé (PDF)","https://cms.monespacesante.fr/gateway/cms/sites/default/files/Services%20r%C3%A9f%C3%A9renc%C3%A9s%20MES%20(ID%201558).pdf"],UK:["NHS Apps Library (komunikat o zamknięciu)","https://www.nhs.uk/apps-library/"]};
 const TNOTE={
  "PL|Możliwa refundacja aplikacji przez płatnika":"Wzór umowy PAZ: bez wynagrodzenia dla właściciela aplikacji i bez zakupu przez płatnika.",
  "PL|Dedykowana ścieżka refundacji aplikacji":"Program nie przewidywał ścieżki finansowania aplikacji.",
@@ -534,6 +542,7 @@ function cellDetail(box,c,crit,txt,withHead){
  rows.forEach(tr=>{const crit=tr.cells[0].textContent.trim();
   COLS.forEach((c,i)=>{const cell=tr.cells[i+1],v=cell.dataset.v,txt=v==="y"?"tak":"nie";
    cell.innerHTML='<span class="mk '+v+'">'+ICON[v]+txt+(cell.dataset.star?"*":"")+'</span>';
+   if(crit===KROW&&KAT[c]){const a=document.createElement("a");a.href=KAT[c][1];a.target="_blank";a.rel="noopener";a.className="klink";a.title=KAT[c][0];a.setAttribute("aria-label",c+", katalog: "+KAT[c][0]);a.innerHTML=cell.innerHTML;cell.innerHTML="";cell.appendChild(a);return}
    cell.classList.add("clk");cell.tabIndex=0;cell.setAttribute("role","button");cell.setAttribute("aria-label",c+", "+crit+": "+txt+". Pokaż źródła");
    const f=()=>{if(cur)cur.classList.remove("sel");cur=cell;cell.classList.add("sel");td.style.display="block";td.innerHTML="";cellDetail(td,c,crit,txt,true)};
    cell.onclick=f;cell.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}}})});
@@ -543,6 +552,7 @@ function cellDetail(box,c,crit,txt,withHead){
   const hd=document.createElement("div");hd.className="ch";const im=th.querySelector("img").cloneNode();hd.appendChild(im);
   const nm=document.createElement("div");nm.innerHTML="<b>"+th.childNodes[1].textContent+"</b>"+'<span class="prog">'+th.querySelector(".prog").textContent+"</span>";hd.appendChild(nm);card.appendChild(hd);
   rows.forEach(tr=>{const crit=tr.cells[0].textContent.trim(),cell=tr.cells[i+1],v=cell.dataset.v,txt=v==="y"?"tak":"nie";
+   if(crit===KROW&&KAT[c]){const a=document.createElement("a");a.href=KAT[c][1];a.target="_blank";a.rel="noopener";a.className="krow";a.innerHTML='<span class="mk '+v+'">'+ICON[v]+txt+(cell.dataset.star?"*":"")+'</span><span class="cr"></span>';a.querySelector(".cr").textContent=crit+": "+KAT[c][0];card.appendChild(a);return}
    const d=document.createElement("details"),sm=document.createElement("summary");
    sm.innerHTML='<span class="mk '+v+'">'+ICON[v]+txt+(cell.dataset.star?"*":"")+'</span><span class="cr"></span>';sm.querySelector(".cr").textContent=crit;d.appendChild(sm);
    const box=document.createElement("div");box.className="cd";cellDetail(box,c,crit,txt,false);d.appendChild(box);card.appendChild(d)});
