@@ -61,12 +61,9 @@ h1{font-size:clamp(1.6rem,3.3vw,2.9rem);line-height:1.12;margin:0 0 1rem;font-we
 .authors a{color:inherit;text-decoration-thickness:1px}
 .aff{font-size:.95rem;color:var(--color-on-brand-2);margin:.1rem 0}
 .meta{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;margin-top:1.2rem;font-size:.95rem;color:var(--color-on-brand-2)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--color-on-brand);color:var(--color-brand);border-radius:var(--radius-s);padding:.5rem 1rem;font-weight:700;text-decoration:none;font-size:.95rem}
-.btn:hover{background:var(--color-tint-hover)}
-.btn:active,.btn2:active:not(:disabled),td.clk:active{transform:translateY(1px)}
+.btn2:active:not(:disabled),td.clk:active{transform:translateY(1px)}
 .ev:active .dot{opacity:.75}
 nav a:active,a:active{opacity:.75}
-.btn svg{width:1.1em;height:1.1em}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:var(--color-surface);border-bottom:1px solid var(--color-line);box-shadow:0 1px 6px var(--color-shadow)}
 nav .wrap{display:flex;gap:.2rem;overflow-x:auto}
@@ -187,7 +184,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <p class="authors"><a href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener" title="Profil LinkedIn">Patryk Stanisław Górski</a><sup>1</sup>, Ewa Bandurska<sup>1,2</sup>, Weronika Ciećko<sup>1,2</sup></p>
 <p class="aff"><sup>1</sup> Studenckie Koło Naukowe Innowacji Medycznych, Gdański Uniwersytet Medyczny</p>
 <p class="aff"><sup>2</sup> Centrum Rozwoju Kompetencji, Zintegrowanej Opieki i e-Zdrowia, Gdański Uniwersytet Medyczny</p>
-<div class="meta"><a class="btn" href="pdf/Plakat_PAZ_B1_RGB.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>Pobierz plakat (PDF)</a><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
+<div class="meta"><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
 </div></header>
 <nav aria-label="Sekcje e-plakatu"><div class="wrap">
 <a href="#wstep">Wstęp i metody</a><a href="#wyniki">Wyniki</a><a href="#os">Oś czasu</a><a href="#porownanie">Porównanie</a><a href="#wnioski">Wnioski</a><a href="#zrodla">Źródła</a>
@@ -297,7 +294,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 </main>
 <footer><div class="wrap">
 <p>e-Plakat przygotowany na XXIV Konferencję Polskiego Towarzystwa Farmakoekonomicznego (25–27.11.2026). Stan dokumentacji PAZ: dostęp 20.09–24.11.2026; strony MZ dotyczące PAZ są wygaszane i mogą ulec zmianie.</p>
-<div class="actions"><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button><a class="btn2" href="pdf/Plakat_PAZ_B1_RGB.pdf" download style="text-decoration:none">Pobierz plakat B1 (PDF, RGB)</a></div>
+<div class="actions"><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button></div>
 <p>Opracowanie: SKN Innowacji Medycznych, GUMed. Treść ma charakter ewaluacji programu publicznego (studium przypadku polityki zdrowotnej); nie stanowi oceny jakości klinicznej aplikacji.</p>
 </div></footer>
 <script>
