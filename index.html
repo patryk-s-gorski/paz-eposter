@@ -70,6 +70,11 @@ nav a:active,a:active{opacity:.75}
 .contact:active{transform:translateY(1px)}
 .contact svg{width:1.15em;height:1.15em}
 .contact.inv{padding:.3rem .8rem;font-size:.9rem}
+.contact.sec{background:transparent;color:var(--color-on-brand);box-shadow:inset 0 0 0 1px var(--color-on-brand-2)}
+.contact.sec:hover{background:var(--color-brand-deep)}
+.meta .contact.sec{font-weight:400}
+.kontakt-lbl{font-weight:700;color:var(--color-on-brand)}
+.meta>span:last-child{flex-basis:100%}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:var(--color-surface);border-bottom:1px solid var(--color-line);box-shadow:0 1px 6px var(--color-shadow)}
 nav .wrap{display:flex;gap:.2rem;overflow-x:auto}
@@ -233,7 +238,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <p class="authors"><a href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener" title="Profil LinkedIn">Patryk Stanisław Górski</a><sup>1</sup>, Ewa Bandurska<sup>1,2</sup>, Weronika Ciećko<sup>1,2</sup></p>
 <p class="aff"><sup>1</sup> Studenckie Koło Naukowe Innowacji Medycznych, Gdański Uniwersytet Medyczny</p>
 <p class="aff"><sup>2</sup> Centrum Rozwoju Kompetencji, Zintegrowanej Opieki i e-Zdrowia, Gdański Uniwersytet Medyczny</p>
-<div class="meta"><a class="contact" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Skontaktuj się z autorem</a><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
+<div class="meta"><span class="kontakt-lbl">Kontakt z autorem:</span><a class="contact" href="mailto:patryk.gorski@gumed.edu.pl?subject=e-Plakat%20PAZ" title="Napisz e-mail do autora"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>patryk.gorski@gumed.edu.pl</a><a class="contact sec" href="mailto:patryk.s.gorski@gmail.com?subject=e-Plakat%20PAZ">patryk.s.gorski@gmail.com</a><a class="contact sec" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener">Profil LinkedIn</a><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
 </div></header>
 <nav aria-label="Sekcje e-plakatu"><div class="wrap">
 <a href="#wstep">Wstęp i metody</a><a href="#wyniki">Wyniki</a><a href="#os">Oś czasu</a><a href="#porownanie">Porównanie</a><a href="#wnioski">Wnioski</a><a href="#zrodla">Źródła</a>
@@ -345,7 +350,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 </main>
 <footer><div class="wrap">
 <p>e-Plakat przygotowany na XXIV Konferencję Polskiego Towarzystwa Farmakoekonomicznego (25–27.11.2026). Stan dokumentacji PAZ: dostęp 20.09–24.11.2026; strony MZ dotyczące PAZ są wygaszane i mogą ulec zmianie.</p>
-<div class="actions"><a class="contact inv" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Skontaktuj się z autorem</a><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button></div>
+<div class="actions"><a class="contact inv" href="mailto:patryk.gorski@gumed.edu.pl?subject=e-Plakat%20PAZ" title="Napisz e-mail do autora"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>patryk.gorski@gumed.edu.pl</a><a class="contact inv sec" href="mailto:patryk.s.gorski@gmail.com?subject=e-Plakat%20PAZ">patryk.s.gorski@gmail.com</a><a class="contact inv sec" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener">Profil LinkedIn</a><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button></div>
 <p>Opracowanie: SKN Innowacji Medycznych, GUMed. Treść ma charakter ewaluacji programu publicznego (studium przypadku polityki zdrowotnej); nie stanowi oceny jakości klinicznej aplikacji.</p>
 </div></footer>
 <script>
