@@ -530,13 +530,13 @@ const TNOTE={
 };
 function cellDetail(box,c,crit,txt,withHead){
  if(withHead){const b=document.createElement("b");b.textContent=c+", "+crit.toLowerCase()+": "+txt;box.appendChild(b)}
+ if(crit===KROW&&KAT[c]){const k=document.createElement("div");k.className="d-src d-kat";k.style.margin=".3rem 0 .4rem";k.appendChild(document.createTextNode("Spis aplikacji: "));const kq=KAT[c][3]?"#:~:text="+fenc(KAT[c][3]):"";k.appendChild(link(KAT[c][1]+kq,KAT[c][0]));if(KAT[c][2]){k.appendChild(document.createTextNode(" ("));k.appendChild(link(KAT[c][2]+kq,"archiwum"));k.appendChild(document.createTextNode(")"))}box.appendChild(k)}
  const note=TNOTE[c+"|"+crit];if(note){const q=document.createElement("div");q.style.marginTop=".4rem";q.textContent=note;box.appendChild(q)}
  const pg=PROG[c],pp=document.createElement("div");pp.className="d-src";pp.appendChild(document.createTextNode("Strona programu: "));pp.appendChild(link(pg[1],pg[0]));
  if(pg[2]){pp.appendChild(document.createTextNode(" ("));pp.appendChild(link(pg[2],"archiwum"));pp.appendChild(document.createTextNode(")"))}box.appendChild(pp);
  const p=document.createElement("div");p.className="d-src";p.appendChild(document.createTextNode("Źródła:"));const ul=document.createElement("ul");ul.style.margin=".2rem 0 0";
  COLREF[c].forEach(n=>{const r=REFS[n],li=document.createElement("li");li.style.margin=".15rem 0";li.appendChild(document.createTextNode(r[0]+" "));li.appendChild(link(refUrl(n,c,crit),r[2]));if(r[3]){li.appendChild(document.createTextNode(" ("));li.appendChild(link(r[3],"archiwum"));li.appendChild(document.createTextNode(")"))}ul.appendChild(li)});
  p.appendChild(ul);box.appendChild(p);
- if(crit===KROW&&KAT[c]){const k=document.createElement("div");k.className="d-src d-kat";k.appendChild(document.createTextNode("Spis aplikacji: "));const kq=KAT[c][3]?"#:~:text="+fenc(KAT[c][3]):"";k.appendChild(link(KAT[c][1]+kq,KAT[c][0]));if(KAT[c][2]){k.appendChild(document.createTextNode(" ("));k.appendChild(link(KAT[c][2]+kq,"archiwum"));k.appendChild(document.createTextNode(")"))}box.appendChild(k)}
 }
 (function(){const td=document.getElementById("tbl-d");let cur=null;
  const rows=[...document.querySelectorAll("#porownanie tbody tr")],heads=[...document.querySelectorAll("#porownanie thead th")];
