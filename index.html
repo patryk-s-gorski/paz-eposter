@@ -141,7 +141,6 @@ ul{margin:.3rem 0 0;padding-left:1.2rem}li{margin:.35rem 0}
 #tl .tt{fill:var(--color-ink-2);transition:fill .15s}
 .ev:hover .tt,.ev.sel .tt{fill:var(--color-ink)}
 .ev .lab{transition:transform .2s ease-out}
-.ev:hover .lab,.ev.sel .lab{transform:translateX(1.5px)}
 .span{opacity:0;transition:opacity .3s}
 .span.on{opacity:1}
 .d-date{font-weight:700;color:var(--color-brand);font-size:1.05rem}
@@ -487,7 +486,7 @@ function show(e){
   const near=e.up?edge-8-e.k*P:edge+8+e.k*P,far=e.up?near-e.h:near+e.h,top=Math.min(near,far);
   const grp=el("g",{class:"ev",tabindex:0,role:"button","aria-label":e.d+": "+e.t},g);e.node=grp;
   const [a,b]=e.end?[x-3-e.w,x+1]:[x-1,x+3+e.w];
-  el("rect",{class:"hit",x:a-1,y:top-1,width:b-a+2,height:e.h+2,rx:3},grp);
+  const r=3,o=e.end?a-1:b+1,sg=e.end?-1:1,bt=top+e.h;el("path",{class:"hit",d:"M"+x+" "+top+"H"+(o-sg*r)+"Q"+o+" "+top+" "+o+" "+(top+r)+"V"+(bt-r)+"Q"+o+" "+bt+" "+(o-sg*r)+" "+bt+"H"+x+"Z"},grp);
   el("line",{class:"pole",x1:x,x2:x,y1:edge,y2:far,stroke:col,"stroke-width":1.1},grp);
   el("circle",{class:"dot",cx:x,cy:edge,r:3.2,fill:col,stroke:C.surf,"stroke-width":1},grp);
   const tx=e.end?x-3-PAD:x+3+PAD,an=e.end?"end":"start";
