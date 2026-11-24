@@ -44,13 +44,14 @@ html{scroll-behavior:smooth;scroll-padding-top:4rem;font-size:17px}
 @media(min-width:1700px){html{font-size:20px}}
 body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased}
 :focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
-a{color:var(--color-brand);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
-a:hover{text-decoration-thickness:2.5px}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--color-brand);text-decoration-thickness:2.5px}
+header a:hover,footer a:hover{color:inherit}
 h1,h2,h3{overflow-wrap:break-word;min-width:0}
 p{margin:0 0 .6em}
 sup{font-size:.68em;line-height:0}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-sup a{text-decoration:none;font-weight:700}
+sup a{font-weight:700;text-decoration-thickness:1px;text-underline-offset:2px}
 .wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
 /* header */
 header{background:var(--color-brand);color:var(--color-on-brand)}
@@ -74,32 +75,38 @@ nav{position:sticky;top:0;z-index:20;background:var(--color-surface);border-bott
 nav .wrap{display:flex;gap:.2rem;overflow-x:auto}
 nav a{white-space:nowrap;padding:.75rem .8rem;text-decoration:none;font-size:.95rem;color:var(--color-ink-2);border-bottom:3px solid transparent}
 nav a:hover,nav a.on{color:var(--color-brand);border-color:var(--color-brand)}
-/* sections */
-section{padding:2.2rem 0 .4rem}
-h2{font-size:clamp(1.45rem,2.4vw,2.1rem);color:var(--color-brand);margin:0 0 .3rem;font-weight:700;line-height:1.15}
-.sub{font-size:.95rem;color:var(--color-ink-2);margin:0 0 1rem}
-h3{margin:0 0 .6rem;color:var(--color-brand);font-size:1.2rem;line-height:1.25}
-.card{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius);padding:1.2rem 1.3rem}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+/* sections: editorial, hairlines instead of boxes */
+section{padding:3rem 0 .6rem}
+h2{font-size:clamp(1.7rem,3vw,2.5rem);color:var(--color-brand);margin:0 0 .4rem;font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.sub{font-size:1rem;color:var(--color-ink-2);margin:0 0 1.4rem;max-width:62ch}
+h3{margin:0 0 .5rem;color:var(--color-brand);font-size:1.15rem;line-height:1.25}
+.card{background:var(--color-well);border-radius:var(--radius-s);padding:1.1rem 1.3rem}
 ul{margin:.3rem 0 0;padding-left:1.2rem}li{margin:.35rem 0}
-.chips{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;margin:.6rem 0}
-.chip{background:var(--color-brand);color:var(--color-on-brand);border-radius:999px;padding:.25rem .9rem;font-weight:700;font-size:.9rem}
-.arr{color:var(--color-brand);font-weight:700}
-/* results */
-.frames{display:grid;grid-template-columns:minmax(0,1fr);gap:.7rem}
-.frame{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.2rem;align-items:start;background:var(--color-surface);border:1px solid var(--color-line);border-left:6px solid var(--color-brand);border-radius:var(--radius);padding:1rem 1.3rem}
-.frame h3{font-size:1.35rem;margin:.15rem 0 0}
+.kick{display:block;font-size:.85rem;font-weight:700;color:var(--color-brand);margin-bottom:.2rem}
+.intro{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem;padding:1.2rem 0 1.6rem;border-top:2px solid var(--color-brand)}
+.lead{font-size:clamp(1.2rem,1.9vw,1.55rem);line-height:1.4;margin:0}
+.lead2{font-size:1.05rem;line-height:1.55;margin:0;color:var(--color-ink)}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;border-top:1px solid var(--color-line);padding-top:1.2rem}
+.cols2>div+div{border-left:1px solid var(--color-line);padding-left:2rem;margin-left:-1rem}
+.chain{list-style:none;padding:0;margin:.4rem 0 .8rem;display:flex;flex-wrap:wrap;gap:.2rem .5rem;font-weight:700;color:var(--color-brand)}
+.chain li{margin:0}
+.chain li+li::before{content:"→";margin-right:.5rem;color:var(--color-ink-2);font-weight:400}
+/* results: rows parted by hairlines */
+.frames{display:grid;grid-template-columns:minmax(0,1fr);border-top:2px solid var(--color-brand)}
+.frame{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:2rem;align-items:start;padding:1.3rem 0;border-bottom:1px solid var(--color-line)}
+.frame h3{font-size:1.5rem;margin:0}
 .frame ul{margin:0}
 .frame li:first-child{margin-top:0}
 .fbody{display:grid;grid-template-columns:minmax(0,1fr);gap:.6rem}
-.fbody.has-tiles{grid-template-columns:minmax(0,22rem) minmax(0,1fr);gap:1.2rem;align-items:start}
-.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:0}
-.tile{background:var(--color-tint);border-radius:12px;padding:.7rem;text-align:center}
-.tile b{display:block;font-size:2.8rem;line-height:1;color:var(--color-brand)}
-.tile span{display:block;font-size:.85rem;color:var(--color-ink-2);margin-top:.3rem;line-height:1.3}
+.fbody.has-tiles{grid-template-columns:minmax(0,20rem) minmax(0,1fr);gap:2rem;align-items:start}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:0}
+.tile{padding:0 1rem 0 0}
+.tile+.tile{border-left:1px solid var(--color-line);padding:0 0 0 1rem}
+.tile b{display:block;font-size:4rem;line-height:.95;color:var(--color-brand);font-variant-numeric:tabular-nums}
+.tile span{display:block;font-size:.85rem;color:var(--color-ink-2);margin-top:.4rem;line-height:1.35}
 .big{font-weight:700;color:var(--color-brand)}
 /* timeline */
-.tl-scroll{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius);overflow:hidden}
+.tl-scroll{border-top:2px solid var(--color-brand);border-bottom:1px solid var(--color-line);overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 #tl{display:block;width:100%;height:auto}
 #tl text{font-family:var(--font-body);fill:var(--color-ink)}
 .ev{cursor:pointer}
@@ -110,65 +117,75 @@ ul{margin:.3rem 0 0;padding-left:1.2rem}li{margin:.35rem 0}
 .ev:hover .dot,.ev.sel .dot{filter:drop-shadow(0 0 2.5px var(--color-brand))}
 .ev:focus{outline:none}.ev:focus-visible .dot{stroke:var(--color-focus);stroke-width:2}
 .ev:focus-visible .hit{stroke:var(--color-focus);stroke-width:.8}
-#detail{margin-top:.8rem;min-height:7rem;background:var(--color-band-2)}
-.d-date{font-weight:700;color:var(--color-brand);font-size:1.1rem}
-.d-t{font-size:1.1rem;font-weight:700;margin:.1rem 0 .5rem}
+.rot{display:none;align-items:center;gap:.5rem;font-size:.9rem;color:var(--color-ink-2);margin:-.6rem 0 .8rem}
+.rot svg{width:1.4rem;height:1.4rem;flex:none;color:var(--color-brand)}
+#detail{margin-top:1rem;min-height:7rem}
+.d-date{font-weight:700;color:var(--color-brand);font-size:1.05rem}
+.d-t{font-size:1.15rem;font-weight:700;margin:.1rem 0 .5rem}
 .d-src{margin-top:.4rem;font-size:.9rem;color:var(--color-ink-2)}
-.tag{display:inline-block;border-radius:6px;padding:.05rem .5rem;font-size:.8rem;margin-right:.35rem;background:var(--color-tint);color:var(--color-brand)}
-.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.9rem;color:var(--color-ink-2);margin:.6rem .2rem}
+.tag{display:inline-block;font-size:.85rem;margin-right:.8rem;color:var(--color-ink-2)}
+.tag+.tag::before{content:"/";margin-right:.8rem;color:var(--color-line-strong)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.9rem;color:var(--color-ink-2);margin:.7rem 0}
 .legend i{display:inline-block;width:.75rem;height:.75rem;border-radius:50%;vertical-align:-1px;margin-right:.35rem}
-.nav2{display:flex;gap:.5rem;margin-top:.6rem}
-.btn2{white-space:nowrap;font:inherit;font-size:.9rem;background:var(--color-tint);color:var(--color-brand);border:1px solid var(--color-line);border-radius:var(--radius-s);padding:.3rem .8rem;cursor:pointer}
-.btn2:hover:not(:disabled){background:var(--color-tint-hover)}
-.btn2:disabled{opacity:.5;cursor:default}
-#tl-list{display:none;list-style:none;margin:0;padding:0 0 0 1rem;border-left:3px solid var(--color-brand)}
-#tl-list li{margin:0 0 .7rem;padding:.7rem .9rem;background:var(--color-surface);border:1px solid var(--color-line);border-radius:0 10px 10px 0;position:relative}
-#tl-list li::before{content:"";position:absolute;left:calc(-1rem - 8px);top:1rem;width:13px;height:13px;border-radius:50%;background:var(--dot,var(--color-brand));border:2px solid var(--color-paper)}
-#tl-list .dd{font-weight:700;color:var(--color-brand)}
-#tl-list .tt{font-weight:700}
-#tl-list .nn{font-size:.92rem;margin-top:.25rem}
-#tl-list .ss{font-size:.85rem;color:var(--color-ink-2);margin-top:.25rem}
-/* table */
-.tbl-scroll{overflow-x:auto;border:1px solid var(--color-line);border-radius:12px;background:var(--color-surface)}
+.nav2{display:flex;gap:.5rem;margin-top:.8rem}
+.btn2{white-space:nowrap;font:inherit;font-size:.9rem;background:transparent;color:var(--color-brand);border:1px solid var(--color-brand);border-radius:var(--radius-s);padding:.35rem .85rem;cursor:pointer}
+.btn2:hover:not(:disabled){background:var(--color-tint)}
+.btn2:disabled{opacity:.45;cursor:default}
+/* table: rules only */
+.tbl-scroll{overflow-x:auto}
 table{border-collapse:collapse;width:100%;min-width:44rem}
-th,td{padding:.6rem .7rem;text-align:center;border-bottom:1px solid var(--color-line);font-size:.95rem;vertical-align:middle}
-tbody tr:last-child td{border-bottom:0}
-th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:inherit;z-index:1}
-thead th{background:var(--color-tint);color:var(--color-brand);line-height:1.2}
-thead th.pl,td.pl{background:var(--color-band-1)}
-thead img{display:block;margin:0 auto .3rem;width:2.4rem;height:1.6rem;border-radius:4px}
+th,td{padding:.75rem .7rem;text-align:center;border-bottom:1px solid var(--color-line);font-size:.95rem;vertical-align:middle}
+th:first-child,td:first-child{text-align:left;padding-left:0}
+thead th{color:var(--color-brand);line-height:1.2;border-bottom:2px solid var(--color-brand);border-top:2px solid var(--color-brand);font-weight:700}
+thead th.pl,td.pl{background:var(--color-tint)}
+thead img{display:block;margin:0 auto .35rem;width:2.2rem;height:1.45rem;border-radius:3px;box-shadow:0 0 0 1px var(--color-line)}
 thead .prog{display:block;font-weight:400;color:var(--color-ink-2);font-size:.85rem}
-tbody tr{background:var(--color-surface)}
-tbody tr:nth-child(even){background:var(--color-band-2)}
-tbody td:first-child{font-weight:700;color:var(--color-brand)}
+tbody td:first-child{font-weight:700;color:var(--color-ink)}
 .mk{display:inline-flex;align-items:center;gap:.3rem;font-weight:700}
-.mk svg{width:1.35rem;height:1.35rem}
+.mk svg{width:1.3rem;height:1.3rem}
 .y{color:var(--color-ena)}.n{color:var(--color-bar)}
-td.clk{cursor:pointer}td.clk:hover{background:var(--color-tint-hover)}td.clk.sel{outline:3px solid var(--color-brand);outline-offset:-3px}
-#tbl-d{margin-top:.8rem;background:var(--color-band-2);display:none}
+td.clk{cursor:pointer}td.clk:hover{background:var(--color-tint-hover)}td.clk.sel{box-shadow:inset 0 -3px 0 var(--color-brand);background:var(--color-tint)}
+#tbl-d{margin-top:1rem;display:none}
+#cmp-cards{display:none}
+.ccard{border-top:2px solid var(--color-brand);padding:.8rem 0 .4rem;margin-bottom:1.2rem}
+.ch{display:flex;align-items:center;gap:.7rem;margin-bottom:.3rem;color:var(--color-brand)}
+.ch img{width:2.2rem;height:1.45rem;border-radius:3px;box-shadow:0 0 0 1px var(--color-line)}
+.ch b{font-size:1.15rem}
+.ch .prog{display:block;font-size:.85rem;color:var(--color-ink-2)}
+.ccard details{border-top:1px solid var(--color-line)}
+.ccard summary{display:flex;gap:.7rem;align-items:center;padding:.6rem 0;cursor:pointer;list-style:none}
+.ccard summary::-webkit-details-marker{display:none}
+.ccard summary::after{content:"+";margin-left:auto;font-weight:700;color:var(--color-brand);font-size:1.2rem}
+.ccard details[open] summary::after{content:"−"}
+.ccard .mk{min-width:3.6rem}
+.ccard .cr{font-size:.95rem}
+.cd{padding:0 0 .8rem;font-size:.92rem}
 .hintline{font-size:.9rem;color:var(--color-ink-2);margin:.5rem .1rem 0}
-.fn{font-size:.9rem;color:var(--color-ink-2);margin:.4rem .1rem 0}
-/* NASSS */
-.nasss{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.42fr) repeat(4,minmax(0,1fr));gap:.7rem;align-items:stretch}
-.grp{font-size:.85rem;color:var(--color-ink-2);text-align:center;border-bottom:2px solid var(--color-line);padding-bottom:.2rem}
-.grp.on{color:var(--color-brand);border-color:var(--color-brand)}
+.fn{font-size:.9rem;color:var(--color-ink-2);margin:.6rem 0 0}
+/* NASSS: columns under rules */
+.nasss{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.42fr) repeat(4,minmax(0,1fr));gap:0 1.4rem;align-items:start}
+.grp{font-size:.85rem;color:var(--color-ink-2);padding-bottom:.3rem}
+.grp.on{color:var(--color-brand);font-weight:700}
 .g-na{grid-column:1/3}.g-an{grid-column:3/7}
-.dom{background:var(--color-surface);border:1px solid var(--color-line);border-radius:12px;padding:.8rem .9rem;font-size:.92rem;line-height:1.4}
-.dom.na{background:var(--color-na-bg);border-color:var(--color-na-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.4rem;font-weight:700;color:var(--color-none)}
-.dh{display:flex;align-items:center;gap:.45rem;font-weight:700;color:var(--color-brand);font-size:1rem;margin-bottom:.5rem;line-height:1.2}
-.num{font-variant-numeric:tabular-nums;display:inline-grid;place-items:center;min-width:1.6rem;height:1.6rem;border-radius:50%;background:var(--color-brand);color:var(--color-on-brand);font-size:.85rem;font-weight:700;flex:none}
-.na .num{background:var(--color-none)}
-.f{display:flex;gap:.45rem;margin:.35rem 0}
-.f svg{width:1.15rem;height:1.15rem;flex:none;margin-top:.12rem}
-.dom.d7{grid-column:1/-1;background:var(--color-bar-bg);border-color:var(--color-bar-line)}
-.dom.d7 .dh{margin-bottom:.2rem}
-.flink{color:inherit;text-decoration:underline dotted var(--color-line-strong);text-decoration-thickness:1.5px;text-underline-offset:3px}
-.flink:hover{color:var(--color-brand);text-decoration:underline solid var(--color-brand)}
-.reco li{font-size:1.05rem}
+.dom{border-top:3px solid var(--color-brand);padding:.8rem 0 1rem;font-size:.95rem;line-height:1.45}
+.dom.na{border-top-color:var(--color-line-strong);color:var(--color-ink-2);font-weight:700}
+.dom.na .dh{color:var(--color-ink-2)}
+.dh{display:flex;align-items:baseline;gap:.45rem;font-weight:700;color:var(--color-brand);font-size:1.05rem;margin-bottom:.5rem;line-height:1.2}
+.num{font-variant-numeric:tabular-nums;font-size:1.6rem;line-height:1;font-weight:700;color:var(--color-brand)}
+.na .num{color:var(--color-ink-2);display:block;margin-bottom:.35rem}
+.f{display:flex;gap:.5rem;margin:.4rem 0}
+.f svg{width:1.1rem;height:1.1rem;flex:none;margin-top:.15rem}
+.dom.d7{grid-column:1/-1;border-top-width:1px;border-top-color:var(--color-line);display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,4fr);gap:1.4rem;padding-top:1rem}
+.dom.d7 .dh{margin:0}
+.reco{margin-top:2rem;background:var(--color-brand-deep);color:var(--color-on-brand);border-radius:var(--radius-s);padding:1.8rem 2rem;display:grid;grid-template-columns:11rem minmax(0,1fr);gap:2rem}
+.reco h3{color:var(--color-on-brand);font-size:1.5rem;margin:0}
+.reco ol{margin:0;padding-left:1.4rem}
+.reco li{font-size:1.12rem;line-height:1.5;margin:.2rem 0 .6rem}
+.reco li::marker{font-weight:700;color:var(--color-on-brand-2)}
 /* sources */
 .refs{font-size:.92rem;color:var(--color-ink-2)}
-.refs li{margin:.3rem 0}
-ol.refs{padding-left:1.6rem}
+.refs li{margin:.35rem 0}
+ol.reflist{padding:1rem 0 0 1.6rem;border-top:2px solid var(--color-brand);margin:0}
 .refs li:target{background:var(--color-note-bg);border-radius:4px}
 /* footer */
 footer{margin-top:2.4rem;background:var(--color-brand-deep);color:var(--color-on-brand-2);font-size:.9rem}
@@ -177,11 +194,35 @@ footer a{color:var(--color-on-brand)}
 footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-color:var(--color-on-brand)}
 .actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
 /* responsive */
-@media(max-width:1100px){.fbody.has-tiles{grid-template-columns:minmax(0,1fr)}.nasss{grid-template-columns:repeat(2,minmax(0,1fr))}.g-na,.g-an{grid-column:auto}.grp{display:none}.dom.na{min-height:5rem}}
-@media(max-width:820px){html{font-size:16px}.grid2{grid-template-columns:minmax(0,1fr)}.frame{grid-template-columns:minmax(0,1fr);gap:.5rem}.logo{height:2.8rem}
- .tl-scroll,#tl-legend,#detail{display:none}#tl-list{display:block}}
-@media(max-width:480px){.nasss{grid-template-columns:repeat(2,minmax(0,1fr))}.nasss .dom:not(.na){grid-column:1/-1}}
-@media print{nav,.nav2,.btn2,.hintline,.actions{display:none}#tl-list{display:none!important}.tl-scroll,#tl-legend{display:block!important}body{background:var(--color-surface)}section{break-inside:avoid}}
+@media(max-width:1100px){.fbody.has-tiles{grid-template-columns:minmax(0,1fr)}.nasss{grid-template-columns:repeat(2,minmax(0,1fr))}.g-na,.g-an{grid-column:auto}.grp{display:none}.dom.d7{grid-template-columns:minmax(0,1fr);gap:.3rem}.intro{grid-template-columns:minmax(0,1fr);gap:1rem}}
+@media(max-width:820px){html{font-size:16px}.logo{height:2.8rem}
+ .frame{grid-template-columns:minmax(0,1fr);gap:.5rem}
+ .cols2{grid-template-columns:minmax(0,1fr);gap:1.2rem}.cols2>div+div{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--color-line);padding-top:1.2rem}
+ .reco{grid-template-columns:minmax(0,1fr);gap:.6rem;padding:1.4rem 1.2rem}
+ .rot{display:flex}
+ #tl{min-width:980px}
+ .tbl-scroll,#tbl-d,#porownanie .fn{display:none!important}#cmp-cards{display:block}}
+@media(max-width:480px){.nasss .dom:not(.na){grid-column:1/-1}}
+/* telefon poziomo: oś na całą szerokość ekranu */
+@media(orientation:landscape) and (max-height:520px){
+ #os .tl-scroll{margin-inline:calc(var(--gutter) * -1)}
+ #tl{min-width:0}
+ nav{position:static}
+}
+@media print{nav,.nav2,.btn2,.hintline,.actions,.rot,.pager{display:none}body{background:var(--color-surface)}section{break-inside:avoid}#tl{min-width:0}}
+
+/* telefon: zakładki zamiast jednej długiej strony */
+.pager{display:none}
+.tabs main section{display:none;padding-top:1.4rem}
+.tabs main section.act{display:block}
+.tabs nav .wrap{gap:0}
+.tabs nav a{padding:.75rem .7rem}
+.tabs .pager{display:flex;justify-content:space-between;gap:.6rem;margin:1.6rem 0 .4rem}
+.pager button{flex:1;font:inherit;font-size:.9rem;font-weight:700;padding:.75rem .8rem;border-radius:var(--radius-s);border:1px solid var(--color-brand);background:transparent;color:var(--color-brand);cursor:pointer;text-align:left}
+.pager button.nx{text-align:right;background:var(--color-brand);color:var(--color-on-brand)}
+.pager button:active{transform:translateY(1px)}
+.pager button[hidden]{display:block;visibility:hidden}
+.tabs footer{margin-top:1rem}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 </style>
 </head>
@@ -201,16 +242,16 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 
 <section id="wstep">
 <h2>Wstęp, cel, materiał i metody</h2>
-<div class="grid2" style="margin-top:1rem">
-<div class="card"><h3>Wstęp</h3>
-<p>„<a href="https://web.archive.org/web/20260923212212/https://www.gov.pl/web/zdrowie/portfel-aplikacji-zdrowotnych" target="_blank" rel="noopener" title="Strona PAZ w archiwum internetowym (Wayback Machine, 23.09.2026)">Portfel Aplikacji Zdrowotnych</a>” (PAZ) to projekt polskiego Ministerstwa Zdrowia (MZ) i Centrum e-Zdrowia (CeZ)<sup><a href="#zr-1">1</a></sup>. Miał utworzyć katalog bezpłatnych aplikacji zdrowotnych dla pacjentów.</p></div>
-<div class="card"><h3>Cel</h3>
-<p>Ocena realizacji wybranych założeń PAZ oraz porównanie wybranych aspektów programu z europejskimi rejestrami terapii cyfrowych (ang. <i>Digital Therapeutics</i>, DTx), aplikacji do telemonitoringu i innych aplikacji zdrowotnych.</p></div>
-<div class="card"><h3>Materiał</h3>
+<div class="intro">
+<p class="lead"><span class="kick">Wstęp</span> „<a href="https://web.archive.org/web/20260923212212/https://www.gov.pl/web/zdrowie/portfel-aplikacji-zdrowotnych" target="_blank" rel="noopener" title="Strona PAZ w archiwum internetowym (Wayback Machine, 23.09.2026)">Portfel Aplikacji Zdrowotnych</a>” (PAZ) to projekt polskiego Ministerstwa Zdrowia (MZ) i Centrum e-Zdrowia (CeZ)<sup><a href="#zr-1">1</a></sup>. Miał utworzyć katalog bezpłatnych aplikacji zdrowotnych dla pacjentów.</p>
+<p class="lead2"><span class="kick">Cel</span> Ocena realizacji wybranych założeń PAZ oraz porównanie wybranych aspektów programu z europejskimi rejestrami terapii cyfrowych (ang. <i>Digital Therapeutics</i>, DTx), aplikacji do telemonitoringu i innych aplikacji zdrowotnych.</p>
+</div>
+<div class="cols2">
+<div><h3>Materiał</h3>
 <p>Publicznie dostępna dokumentacja PAZ (strona internetowa, komunikaty MZ, regulamin, wzór umowy, katalog aplikacji, informacje katalogowe o Symptomate i MASK-air) oraz media społecznościowe MZ i CeZ (frazy związane z PAZ).</p></div>
-<div class="card"><h3>Metody</h3>
+<div><h3>Metody</h3>
 <p>Studium przypadku inicjatywy z zakresu polityki zdrowotnej. Informacje z dokumentów analizowano opisowo i przypisywano do wymiarów raportowania:</p>
-<div class="chips" aria-label="Wymiary raportowania"><span class="chip">Cel</span><span class="arr" aria-hidden="true">→</span><span class="chip">Wkład</span><span class="arr" aria-hidden="true">→</span><span class="chip">Produkt</span><span class="arr" aria-hidden="true">→</span><span class="chip">Rezultat</span></div>
+<ol class="chain" aria-label="Wymiary raportowania"><li>cel</li><li>wkład</li><li>produkt</li><li>rezultat</li></ol>
 <p>Zakres PAZ porównano z <a href="https://diga.bfarm.de" target="_blank" rel="noopener">DiGA</a> (Niemcy), <a href="https://mhealthbelgium.be" target="_blank" rel="noopener">mHealthBelgium</a> (Belgia), <a href="https://www.has-sante.fr/jcms/p_3376633/fr/dispositifs-medicaux-numeriques-la-prise-en-charge-anticipee" target="_blank" rel="noopener">PECAN</a> (Francja) i <a href="https://www.nice.org.uk/corporate/ecd7" target="_blank" rel="noopener">NICE ESF</a> (Wielka Brytania) pod względem struktury programu, finansowania i włączania aplikacji. Przyjęto <a href="https://www.edps.europa.eu/press-publications/publications/techsonar/digital-therapeutics-dtx_en" target="_blank" rel="noopener">definicję DTx Europejskiego Inspektora Ochrony Danych</a><sup><a href="#zr-2">2</a></sup>.</p>
 <p>Do interpretacji wyników wykorzystano <a href="https://doi.org/10.2196/jmir.8775" target="_blank" rel="noopener">ramę NASSS</a><sup><a href="#zr-3">3</a></sup> (ang. <i>Non-adoption, Abandonment, Scale-up, Spread, and Sustainability</i>), służącą do analizy złożoności wdrażania technologii zdrowotnych. Zastosowano ją w ograniczonym zakresie, bo jednostką analizy była inicjatywa, a nie konkretna technologia. Analizą objęto domeny 3–7; domen 1–2 nie analizowano.</p></div>
 </div>
@@ -244,15 +285,15 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <section id="os">
 <h2>Oś czasu PAZ</h2>
 <p class="sub">Skala liniowa, 01.01.2023–31.12.2026. Kliknij zdarzenie, aby zobaczyć opis i źródło.</p>
+<p class="rot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M2.5 9.5a9 9 0 0 1 3-4.5M21.5 14.5a9 9 0 0 1-3 4.5"/></svg>Przesuń oś palcem w bok albo obróć telefon poziomo.</p>
 <div class="tl-scroll"><svg id="tl" role="group" aria-label="Oś czasu programu PAZ 2023–2026"></svg></div>
 <div class="legend" id="tl-legend"><span><i style="background:var(--color-brand)"></i>zdarzenie</span><span><i style="background:var(--color-fb)"></i>publikacja dotycząca PAZ na Facebooku</span><span><i style="background:var(--color-plan)"></i>zdarzenie planowane</span><span><i style="border-radius:4px;width:1.3rem;height:.5rem;background:var(--color-month)"></i>data z dokładnością do miesiąca</span><span><i style="border-radius:3px;width:1.3rem;height:.35rem;background:var(--color-brand)"></i>okres realizacji projektu (plan)</span></div>
 <div id="detail" class="card" aria-live="polite"><div class="d-t">Wybierz zdarzenie na osi czasu.</div></div>
-<ol id="tl-list" aria-label="Zdarzenia programu PAZ"></ol>
 </section>
 
 <section id="porownanie">
 <h2>Porównanie z rozwiązaniami w innych państwach</h2>
-<p class="sub">Kliknij komórkę tabeli, aby zobaczyć uwagi, stronę programu i źródła z odnośnikami.</p>
+<p class="sub">Kliknij komórkę tabeli (na telefonie: wiersz), aby zobaczyć uwagi, stronę programu i źródła z odnośnikami.</p>
 <div class="tbl-scroll"><table>
 <thead><tr><th scope="col">Kryterium</th>
 <th scope="col" class="pl"><img src="data:image/png;base64,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" alt="">Polska<sup>1,4</sup><span class="prog">PAZ</span></th>
@@ -268,6 +309,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 </tbody></table></div>
 <p class="fn">* Katalog usług w serwisie Mon espace santé; dostęp po aktywacji profilu Mon espace santé (karta Vitale i kod aktywacyjny)<sup><a href="#zr-8">8</a></sup>.</p>
 <div id="tbl-d" class="card" aria-live="polite"></div>
+<div id="cmp-cards"></div>
 </section>
 
 <section id="wnioski">
@@ -275,16 +317,16 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <p class="sub">Analiza wybranych domen ramy NASSS<sup><a href="#zr-3">3</a></sup> wskazała potencjalne bariery realizacji i trwałości PAZ. Kliknij opis, aby otworzyć dokument źródłowy.</p>
 <div class="nasss" id="nasss-grid"></div>
 <div class="legend"><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-bar)"/><path d="M5.5 10h9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>bariera</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-ena)"/><path d="M5.5 10h9M10 5.5v9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>czynnik sprzyjający</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-none)"/><circle cx="10" cy="10" r="3.6" fill="none" stroke="var(--color-surface)" stroke-width="2.2"/></svg>brak czynników ograniczających</span></div>
-<div class="card reco" style="margin-top:1rem"><h3>Zalecenia</h3><ul>
+<div class="reco"><h3>Zalecenia</h3><ol>
 <li>Doświadczenia europejskich rozwiązań wskazują na znaczenie powiązania oceny aplikacji ze ścieżką finansowania.</li>
 <li>Przyszłe inicjatywy w Polsce powinny uwzględniać ten mechanizm już na etapie projektowania.</li>
 <li>Powinny także określać plan komunikacji oraz utrzymania katalogu po zakończeniu finansowania.</li>
-</ul></div>
+</ol></div>
 </section>
 
 <section id="zrodla">
 <h2>Źródła</h2>
-<ol class="refs card" style="padding-left:2.4rem">
+<ol class="refs reflist">
 <li id="zr-1">Analiza własna dokumentacji PAZ (MZ, <a href="https://www.gov.pl/web/zdrowie/informacja-nt-projektu-portfel-aplikacji-zdrowotnych-paz" target="_blank" rel="noopener">Informacja nt. projektu PAZ</a>, gov.pl, 29.05.2024; dostęp 23.09.2026; <a href="https://web.archive.org/web/20250525225754/https://www.gov.pl/web/zdrowie/informacja-nt-projektu-portfel-aplikacji-zdrowotnych-paz" target="_blank" rel="noopener">archiwum</a>). Pozostałe strony MZ i ich archiwa podano niżej.</li>
 <li id="zr-2">EDPS, <a href="https://www.edps.europa.eu/press-publications/publications/techsonar/digital-therapeutics-dtx_en" target="_blank" rel="noopener">Digital Therapeutics (DTx)</a>, edps.europa.eu (dostęp 24.11.2026).</li>
 <li id="zr-3">Greenhalgh T. i wsp. <a href="https://doi.org/10.2196/jmir.8775" target="_blank" rel="noopener">J Med Internet Res 2017;19(11):e367</a>.</li>
@@ -299,6 +341,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <p class="refs">Strony PAZ są wygaszane. Dostęp 23.11.2026; migawki Wayback Machine z dat widocznych w adresie, a przy „*” wybierz najnowszą.</p>
 <ul class="refs" id="mz-docs"></ul>
 </section>
+<div class="pager" id="pager"><button type="button" class="pv"></button><button type="button" class="nx"></button></div>
 </main>
 <footer><div class="wrap">
 <p>e-Plakat przygotowany na XXIV Konferencję Polskiego Towarzystwa Farmakoekonomicznego (25–27.11.2026). Stan dokumentacji PAZ: dostęp 20.09–24.11.2026; strony MZ dotyczące PAZ są wygaszane i mogą ulec zmianie.</p>
@@ -433,13 +476,6 @@ function show(e){
   grp.addEventListener("click",()=>show(e));
   grp.addEventListener("keydown",k=>{if(k.key==="Enter"||k.key===" "){k.preventDefault();show(e)}});
  });
- // lista dla wąskich ekranów
- const ol=document.getElementById("tl-list");
- EV.forEach(e=>{const li=document.createElement("li");li.style.setProperty("--dot",colOf(e));
-  const add=(c,t)=>{const x=document.createElement("div");x.className=c;x.textContent=t;li.appendChild(x);return x};
-  add("dd",e.d+(e.plan?" (planowane)":""));add("tt",e.t);add("nn",e.note);
-  const s=add("ss","");if(e.u){s.appendChild(document.createTextNode("Źródło: "));s.appendChild(link(e.u,e.src));s.appendChild(document.createTextNode(" ("));s.appendChild(link(arch(e.u),"archiwum"));s.appendChild(document.createTextNode(")"))}else s.textContent="Źródło: "+e.src;
-  ol.appendChild(li)});
 })();
 
 /* ---------- tabela ---------- */
@@ -470,20 +506,34 @@ const TNOTE={
  "UK|Wymagany status wyrobu medycznego":"Brak jednolitego wymogu: oznakowanie CE/UKCA jest wymagane w ścieżce NICE EVA for MedTech, a w DTAC i NICE ESF zależy od przeznaczenia produktu.",
  "UK|Krajowy katalog aplikacji":"NHS Apps Library została zamknięta."
 };
+function cellDetail(box,c,crit,txt,withHead){
+ if(withHead){const b=document.createElement("b");b.textContent=c+", "+crit.toLowerCase()+": "+txt;box.appendChild(b)}
+ const note=TNOTE[c+"|"+crit];if(note){const q=document.createElement("div");q.style.marginTop=".4rem";q.textContent=note;box.appendChild(q)}
+ const pg=PROG[c],pp=document.createElement("div");pp.className="d-src";pp.appendChild(document.createTextNode("Strona programu: "));pp.appendChild(link(pg[1],pg[0]));
+ if(pg[2]){pp.appendChild(document.createTextNode(" ("));pp.appendChild(link(pg[2],"archiwum"));pp.appendChild(document.createTextNode(")"))}box.appendChild(pp);
+ const p=document.createElement("div");p.className="d-src";p.appendChild(document.createTextNode("Źródła:"));const ul=document.createElement("ul");ul.style.margin=".2rem 0 0";
+ COLREF[c].forEach(n=>{const r=REFS[n],li=document.createElement("li");li.style.margin=".15rem 0";li.appendChild(document.createTextNode("["+n+"] "+r[0]+" "));li.appendChild(link(r[1],r[2]));if(r[3]){li.appendChild(document.createTextNode(" ("));li.appendChild(link(r[3],"archiwum"));li.appendChild(document.createTextNode(")"))}ul.appendChild(li)});
+ p.appendChild(ul);box.appendChild(p);
+}
 (function(){const td=document.getElementById("tbl-d");let cur=null;
- document.querySelectorAll("#porownanie tbody tr").forEach(tr=>{const crit=tr.cells[0].textContent.trim();
+ const rows=[...document.querySelectorAll("#porownanie tbody tr")],heads=[...document.querySelectorAll("#porownanie thead th")];
+ rows.forEach(tr=>{const crit=tr.cells[0].textContent.trim();
   COLS.forEach((c,i)=>{const cell=tr.cells[i+1],v=cell.dataset.v,txt=v==="y"?"tak":"nie";
    cell.innerHTML='<span class="mk '+v+'">'+ICON[v]+txt+(cell.dataset.star?"*":"")+'</span>';
    cell.classList.add("clk");cell.tabIndex=0;cell.setAttribute("role","button");cell.setAttribute("aria-label",c+", "+crit+": "+txt+". Pokaż źródła");
-   const f=()=>{if(cur)cur.classList.remove("sel");cur=cell;cell.classList.add("sel");
-    td.style.display="block";td.innerHTML="";const b=document.createElement("b");b.textContent=c+", "+crit.toLowerCase()+": "+txt;td.appendChild(b);
-    const note=TNOTE[c+"|"+crit];if(note){const q=document.createElement("div");q.style.marginTop=".4rem";q.textContent=note;td.appendChild(q)}
-    const pg=PROG[c],pp=document.createElement("div");pp.className="d-src";pp.appendChild(document.createTextNode("Strona programu: "));pp.appendChild(link(pg[1],pg[0]));
-    if(pg[2]){pp.appendChild(document.createTextNode(" ("));pp.appendChild(link(pg[2],"archiwum"));pp.appendChild(document.createTextNode(")"))}td.appendChild(pp);
-    const p=document.createElement("div");p.className="d-src";p.appendChild(document.createTextNode("Źródła:"));const ul=document.createElement("ul");ul.style.margin=".2rem 0 0";
-    COLREF[c].forEach(n=>{const r=REFS[n],li=document.createElement("li");li.style.margin=".15rem 0";li.appendChild(document.createTextNode("["+n+"] "+r[0]+" "));li.appendChild(link(r[1],r[2]));if(r[3]){li.appendChild(document.createTextNode(" ("));li.appendChild(link(r[3],"archiwum"));li.appendChild(document.createTextNode(")"))}ul.appendChild(li)});
-    p.appendChild(ul);td.appendChild(p)};
-   cell.onclick=f;cell.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}}})});})();
+   const f=()=>{if(cur)cur.classList.remove("sel");cur=cell;cell.classList.add("sel");td.style.display="block";td.innerHTML="";cellDetail(td,c,crit,txt,true)};
+   cell.onclick=f;cell.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}}})});
+ // karty krajów dla wąskich ekranów
+ const wrap=document.getElementById("cmp-cards");
+ COLS.forEach((c,i)=>{const th=heads[i+1],card=document.createElement("article");card.className="ccard";
+  const hd=document.createElement("div");hd.className="ch";const im=th.querySelector("img").cloneNode();hd.appendChild(im);
+  const nm=document.createElement("div");nm.innerHTML="<b>"+th.childNodes[1].textContent+"</b>"+th.querySelector("sup").outerHTML+'<span class="prog">'+th.querySelector(".prog").textContent+"</span>";hd.appendChild(nm);card.appendChild(hd);
+  rows.forEach(tr=>{const crit=tr.cells[0].textContent.trim(),cell=tr.cells[i+1],v=cell.dataset.v,txt=v==="y"?"tak":"nie";
+   const d=document.createElement("details"),sm=document.createElement("summary");
+   sm.innerHTML='<span class="mk '+v+'">'+ICON[v]+txt+(cell.dataset.star?"*":"")+'</span><span class="cr"></span>';sm.querySelector(".cr").textContent=crit;d.appendChild(sm);
+   const box=document.createElement("div");box.className="cd";cellDetail(box,c,crit,txt,false);d.appendChild(box);card.appendChild(d)});
+  wrap.appendChild(card)});
+})();
 
 /* ---------- NASSS ---------- */
 const FI={bar:'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--color-bar)"/><path d="M5.5 10h9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>',
@@ -517,8 +567,28 @@ document.getElementById("print-btn").onclick=()=>window.print();
 document.getElementById("cite-btn").onclick=function(){const t="Górski PS, Bandurska E, Ciećko W. Portfel Aplikacji Zdrowotnych Ministerstwa Zdrowia – analiza realizacji założeń oraz porównanie z rozwiązaniami europejskimi. e-Plakat. XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026. https://patryk-s-gorski.github.io/paz-eposter/";
  const b=this;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent="Skopiowano"},()=>{window.prompt("Skopiuj cytowanie:",t)});setTimeout(()=>{b.textContent="Kopiuj cytowanie e-plakatu"},2000)};
 const links=[...document.querySelectorAll("nav a")];
-if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-40% 0px -55% 0px"});
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!document.body.classList.contains("tabs")){links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-40% 0px -55% 0px"});
 document.querySelectorAll("section").forEach(s=>io.observe(s));}
+
+/* ---------- telefon: zakładki ---------- */
+(function(){
+ const mq=window.matchMedia("(max-width:820px)"),secs=[...document.querySelectorAll("main section")],pager=document.getElementById("pager"),pv=pager.querySelector(".pv"),nx=pager.querySelector(".nx");
+ const name=s=>links.find(l=>l.getAttribute("href")==="#"+s.id).textContent;
+ let cur=0;
+ function go(i,scroll){cur=Math.max(0,Math.min(secs.length-1,i));secs.forEach((s,k)=>s.classList.toggle("act",k===cur));
+  links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+secs[cur].id));
+  const on=links.find(l=>l.classList.contains("on"));if(on)on.scrollIntoView({block:"nearest",inline:"center"});
+  pv.hidden=cur===0;nx.hidden=cur===secs.length-1;if(cur>0)pv.textContent="← "+name(secs[cur-1]);if(cur<secs.length-1)nx.textContent=name(secs[cur+1])+" →";
+  if(scroll){const nav=document.querySelector("nav");window.scrollTo({top:document.querySelector("main").offsetTop-nav.offsetHeight,behavior:"auto"})}}
+ pv.onclick=()=>go(cur-1,true);nx.onclick=()=>go(cur+1,true);
+ document.addEventListener("click",e=>{if(!document.body.classList.contains("tabs"))return;const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1),tg=document.getElementById(id);if(!tg)return;const s=tg.closest("main section");if(!s)return;e.preventDefault();
+  go(secs.indexOf(s),true);if(tg!==s)setTimeout(()=>tg.scrollIntoView({block:"center"}),0);history.replaceState(null,"","#"+id)});
+ let was=null;
+ function apply(){const wasTabs=was;was=mq.matches;document.body.classList.toggle("tabs",mq.matches);
+  if(mq.matches){const h=location.hash&&document.getElementById(location.hash.slice(1));const s=h&&h.closest("main section");go(s?secs.indexOf(s):cur,false)}
+  else if(wasTabs&&secs[cur].id==="os"){const el=document.querySelector("#os .tl-scroll");[60,250,600].forEach(ms=>setTimeout(()=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY,behavior:"auto"}),ms))}}
+ mq.addEventListener?mq.addEventListener("change",apply):mq.addListener(apply);apply();
+})();
 </script>
 </body>
 </html>
