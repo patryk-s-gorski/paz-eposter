@@ -29,7 +29,7 @@
  --font-body:"PAZ Adventor","TeX Gyre Adventor","Century Gothic","URW Gothic",Arial,sans-serif;
  --color-brand:#1d3e92;--color-brand-deep:#172462;--color-ink:#1a223a;--color-ink-2:#3f4757;
  --color-paper:#f4f6fb;--color-surface:#fcfdff;--color-on-brand:#f7f9ff;--color-on-brand-2:#d3dcf4;
- --color-tint:#e8eef9;--color-tint-hover:#d7e3f8;--color-band-1:#e3eaf8;--color-band-2:#f0f4fb;--color-line:#c9d3ea;
+ --color-tint:#e8eef9;--color-tint-hover:#d7e3f8;--color-band-1:#e3eaf8;--color-band-2:#f0f4fb;--color-line:#c9d3ea;--color-line-strong:#8fa3cf;
  --color-bar:#a63c25;--color-bar-bg:#fbe3dc;--color-bar-line:#e2a998;
  --color-ena:#22683f;--color-ena-bg:#dcefe3;--color-ena-line:#9fcfb1;
  --color-none:#3f4757;--color-none-bg:#e4e7ee;--color-na-bg:#dde1e9;
@@ -64,6 +64,11 @@ h1{font-size:clamp(1.6rem,3.3vw,2.9rem);line-height:1.12;margin:0 0 1rem;font-we
 .btn2:active:not(:disabled),td.clk:active{transform:translateY(1px)}
 .ev:active .dot{opacity:.75}
 nav a:active,a:active{opacity:.75}
+.contact{display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;background:var(--color-on-brand);color:var(--color-brand);border-radius:var(--radius-s);padding:.5rem 1rem;font-weight:700;text-decoration:none;font-size:.95rem}
+.contact:hover{background:var(--color-tint-hover)}
+.contact:active{transform:translateY(1px)}
+.contact svg{width:1.15em;height:1.15em}
+.contact.inv{padding:.3rem .8rem;font-size:.9rem}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:var(--color-surface);border-bottom:1px solid var(--color-line);box-shadow:0 1px 6px var(--color-shadow)}
 nav .wrap{display:flex;gap:.2rem;overflow-x:auto}
@@ -98,9 +103,11 @@ ul{margin:.3rem 0 0;padding-left:1.2rem}li{margin:.35rem 0}
 #tl{display:block;width:100%;height:auto}
 #tl text{font-family:var(--font-body);fill:var(--color-ink)}
 .ev{cursor:pointer}
-.ev .hit{fill:transparent}
+.ev .hit{fill:transparent;transition:fill .15s}
+.ev:hover .hit{fill:var(--color-tint)}
+.ev.sel .hit{fill:var(--color-tint)}
 .ev:hover .lbl,.ev.sel .lbl{font-weight:700}
-.ev:hover .dot,.ev.sel .dot{stroke:var(--color-surface);stroke-width:1.2;filter:drop-shadow(0 0 2px var(--color-brand))}
+.ev:hover .dot,.ev.sel .dot{filter:drop-shadow(0 0 2.5px var(--color-brand))}
 .ev:focus{outline:none}.ev:focus-visible .dot{stroke:var(--color-focus);stroke-width:2}
 .ev:focus-visible .hit{stroke:var(--color-focus);stroke-width:.8}
 #detail{margin-top:.8rem;min-height:7rem;background:var(--color-band-2)}
@@ -155,7 +162,8 @@ td.clk{cursor:pointer}td.clk:hover{background:var(--color-tint-hover)}td.clk.sel
 .f svg{width:1.15rem;height:1.15rem;flex:none;margin-top:.12rem}
 .dom.d7{grid-column:1/-1;background:var(--color-bar-bg);border-color:var(--color-bar-line)}
 .dom.d7 .dh{margin-bottom:.2rem}
-.dsrc{font-size:.8rem;color:var(--color-ink-2);margin-top:.5rem}
+.flink{color:inherit;text-decoration:underline dotted var(--color-line-strong);text-decoration-thickness:1.5px;text-underline-offset:3px}
+.flink:hover{color:var(--color-brand);text-decoration:underline solid var(--color-brand)}
 .reco li{font-size:1.05rem}
 /* sources */
 .refs{font-size:.92rem;color:var(--color-ink-2)}
@@ -184,7 +192,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <p class="authors"><a href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener" title="Profil LinkedIn">Patryk Stanisław Górski</a><sup>1</sup>, Ewa Bandurska<sup>1,2</sup>, Weronika Ciećko<sup>1,2</sup></p>
 <p class="aff"><sup>1</sup> Studenckie Koło Naukowe Innowacji Medycznych, Gdański Uniwersytet Medyczny</p>
 <p class="aff"><sup>2</sup> Centrum Rozwoju Kompetencji, Zintegrowanej Opieki i e-Zdrowia, Gdański Uniwersytet Medyczny</p>
-<div class="meta"><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
+<div class="meta"><a class="contact" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Skontaktuj się z autorem</a><span>XXIV Konferencja Polskiego Towarzystwa Farmakoekonomicznego, 25–27.11.2026</span></div>
 </div></header>
 <nav aria-label="Sekcje e-plakatu"><div class="wrap">
 <a href="#wstep">Wstęp i metody</a><a href="#wyniki">Wyniki</a><a href="#os">Oś czasu</a><a href="#porownanie">Porównanie</a><a href="#wnioski">Wnioski</a><a href="#zrodla">Źródła</a>
@@ -237,14 +245,14 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 <h2>Oś czasu PAZ</h2>
 <p class="sub">Skala liniowa, 01.01.2023–31.12.2026. Kliknij zdarzenie, aby zobaczyć opis i źródło.</p>
 <div class="tl-scroll"><svg id="tl" role="group" aria-label="Oś czasu programu PAZ 2023–2026"></svg></div>
-<div class="legend" id="tl-legend"><span><i style="background:var(--color-brand)"></i>zdarzenie</span><span><i style="background:var(--color-fb)"></i>publikacja dotycząca PAZ na Facebooku</span><span><i style="background:var(--color-plan)"></i>zdarzenie planowane</span><span><i style="border-radius:2px;width:1.3rem;height:.5rem;background:var(--color-month)"></i>data z dokładnością do miesiąca</span></div>
+<div class="legend" id="tl-legend"><span><i style="background:var(--color-brand)"></i>zdarzenie</span><span><i style="background:var(--color-fb)"></i>publikacja dotycząca PAZ na Facebooku</span><span><i style="background:var(--color-plan)"></i>zdarzenie planowane</span><span><i style="border-radius:4px;width:1.3rem;height:.5rem;background:var(--color-month)"></i>data z dokładnością do miesiąca</span><span><i style="border-radius:3px;width:1.3rem;height:.35rem;background:var(--color-brand)"></i>okres realizacji projektu (plan)</span></div>
 <div id="detail" class="card" aria-live="polite"><div class="d-t">Wybierz zdarzenie na osi czasu.</div></div>
 <ol id="tl-list" aria-label="Zdarzenia programu PAZ"></ol>
 </section>
 
 <section id="porownanie">
 <h2>Porównanie z rozwiązaniami w innych państwach</h2>
-<p class="sub">Kliknij komórkę tabeli, aby zobaczyć źródła i uwagi.</p>
+<p class="sub">Kliknij komórkę tabeli, aby zobaczyć uwagi, stronę programu i źródła z odnośnikami.</p>
 <div class="tbl-scroll"><table>
 <thead><tr><th scope="col">Kryterium</th>
 <th scope="col" class="pl"><img src="data:image/png;base64,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" alt="">Polska<sup>1,4</sup><span class="prog">PAZ</span></th>
@@ -264,7 +272,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 
 <section id="wnioski">
 <h2>Wnioski</h2>
-<p class="sub">Analiza wybranych domen ramy NASSS<sup><a href="#zr-3">3</a></sup> wskazała potencjalne bariery realizacji i trwałości PAZ.</p>
+<p class="sub">Analiza wybranych domen ramy NASSS<sup><a href="#zr-3">3</a></sup> wskazała potencjalne bariery realizacji i trwałości PAZ. Kliknij opis, aby otworzyć dokument źródłowy.</p>
 <div class="nasss" id="nasss-grid"></div>
 <div class="legend"><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-bar)"/><path d="M5.5 10h9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>bariera</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-ena)"/><path d="M5.5 10h9M10 5.5v9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>czynnik sprzyjający</span><span><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:.3rem"><circle cx="10" cy="10" r="9" fill="var(--color-none)"/><circle cx="10" cy="10" r="3.6" fill="none" stroke="var(--color-surface)" stroke-width="2.2"/></svg>brak czynników ograniczających</span></div>
 <div class="card reco" style="margin-top:1rem"><h3>Zalecenia</h3><ul>
@@ -294,7 +302,7 @@ footer .btn2{background:var(--color-on-brand);color:var(--color-brand);border-co
 </main>
 <footer><div class="wrap">
 <p>e-Plakat przygotowany na XXIV Konferencję Polskiego Towarzystwa Farmakoekonomicznego (25–27.11.2026). Stan dokumentacji PAZ: dostęp 20.09–24.11.2026; strony MZ dotyczące PAZ są wygaszane i mogą ulec zmianie.</p>
-<div class="actions"><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button></div>
+<div class="actions"><a class="contact inv" href="https://www.linkedin.com/in/patryk-s-gorski" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Skontaktuj się z autorem</a><button class="btn2" id="cite-btn" type="button">Kopiuj cytowanie e-plakatu</button><button class="btn2" type="button" id="print-btn">Drukuj lub zapisz jako PDF</button></div>
 <p>Opracowanie: SKN Innowacji Medycznych, GUMed. Treść ma charakter ewaluacji programu publicznego (studium przypadku polityki zdrowotnej); nie stanowi oceny jakości klinicznej aplikacji.</p>
 </div></footer>
 <script>
@@ -343,7 +351,7 @@ const EV=[
 {d:"30.11.2026",x:[30,11,2026],t:"Planowane zakończenie projektu",row:"A",o:"L",lines:["planowane","zakończenie","projektu"],plan:true,u:U.info,src:"Informacja nt. projektu PAZ (MZ, gov.pl)",note:"Termin planowany wg dokumentacji; zdarzenie jeszcze nie nastąpiło (stan: 24.11.2026)."}
 ];
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const C={brand:css("--color-brand"),fb:css("--color-fb"),plan:css("--color-plan"),month:css("--color-month"),b1:css("--color-band-1"),b2:css("--color-band-2"),ink:css("--color-ink"),surf:css("--color-surface")};
+const C={line:css("--color-line"),tint:css("--color-tint"),ink2:css("--color-ink-2"),bar:css("--color-bar"),brand:css("--color-brand"),fb:css("--color-fb"),plan:css("--color-plan"),month:css("--color-month"),b1:css("--color-band-1"),b2:css("--color-band-2"),ink:css("--color-ink"),surf:css("--color-surface")};
 const colOf=e=>e.plan?C.plan:(e.fb?C.fb:C.brand);
 const link=(href,text)=>{const a=document.createElement("a");a.href=href;a.target="_blank";a.rel="noopener";a.textContent=text;return a};
 
@@ -375,37 +383,52 @@ function show(e){
 }
 (function(){
  const svg=document.getElementById("tl"),W=700,AX=172;
- svg.setAttribute("viewBox","0 80 "+W+" 214");
+ svg.setAttribute("viewBox","0 84 "+W+" 260");
+ const bg=el("g",{"pointer-events":"none"},svg);
  [2023,2024,2025,2026].forEach((y,i)=>{const x1=X(1,1,y),x2=X(1,1,y+1);
-  el("rect",{x:x1,y:84,width:x2-x1,height:206,fill:i%2?C.b1:C.b2,"pointer-events":"none"},svg);
-  el("text",{x:(x1+x2)/2,y:96,"text-anchor":"middle","font-size":9,"font-weight":700,style:"fill:"+C.brand,"pointer-events":"none"},svg,y);
+  if(i%2)el("rect",{x:x1,y:84,width:x2-x1,height:258,fill:C.b2},bg);
+  el("line",{x1:x1,x2:x1,y1:84,y2:342,stroke:C.line,"stroke-width":.5},bg);
+  el("text",{x:(x1+x2)/2,y:337,"text-anchor":"middle","font-size":10,"font-weight":700,style:"fill:"+C.brand},bg,y);
  });
- el("line",{x1:X0,x2:X0+626,y1:AX,y2:AX,stroke:C.brand,"stroke-width":1},svg);
- el("path",{d:"M"+(X0+626)+" "+(AX-3)+"l5 3-5 3z",fill:C.brand},svg);
- for(let y=2023;y<=2026;y++)for(let m=1;m<=12;m++){const x=X(1,m,y);el("line",{x1:x,x2:x,y1:AX-(m%3==1?3:1.6),y2:AX+(m%3==1?3:1.6),stroke:C.month,"stroke-width":.4},svg)}
+ el("line",{x1:X(1,1,2027),x2:X(1,1,2027),y1:84,y2:342,stroke:C.line,"stroke-width":.5},bg);
+ // oś: realizacja projektu
+ el("rect",{x:X0-4,y:AX-2,width:X0+634-(X0-4),height:4,rx:2,fill:C.b1},bg);
+ el("rect",{x:X(2,1,2023),y:AX-2,width:X(30,11,2026)-X(2,1,2023),height:4,rx:2,fill:C.brand},bg);
+ for(let y=2023;y<=2026;y++)for(let m=4;m<=12;m+=3){const x=X(1,m,y);el("circle",{cx:x,cy:AX,r:.8,fill:C.surf},bg)}
+ // pasy: okresy aplikacji w Portfelu
+ el("text",{x:X0-4,y:287,"font-size":6.2,"font-weight":700,style:"fill:"+C.ink2},bg,"Okresy obecności aplikacji w Portfelu (24 mies.)");
+ [["Symptomate",[19,12,2023],[19,12,2025]],["MASK-air",[24,5,2024],[24,5,2026]]].forEach((l,i)=>{
+  const x1=X(...l[1]),x2=X(...l[2]),y=292+i*13;
+  el("rect",{x:x1,y:y,width:x2-x1,height:10,rx:5,fill:C.tint,stroke:C.brand,"stroke-width":.5},bg);
+  el("text",{x:x1+5,y:y+7.1,"font-size":6.2,"font-weight":700,style:"fill:"+C.brand},bg,l[0]);
+  el("text",{x:x2-5,y:y+7.1,"text-anchor":"end","font-size":5.6,style:"fill:"+C.ink2},bg,l[1].map(n=>String(n).padStart(2,"0")).join(".")+"–"+l[2].map(n=>String(n).padStart(2,"0")).join("."));
+ });
  const font=7.4,lh=8.7,POLE={A:44,B1:32,B2:72};
  const g=el("g",{},svg);
  EV.forEach(e=>{
   const a=X(...e.x);
-  if(e.month){el("rect",{x:X(1,1,2026),y:AX-2.8,width:X(1,2,2026)-X(1,1,2026),height:5.6,fill:C.month,rx:1.2},g)}
+  if(e.month){el("rect",{x:X(1,1,2026),y:AX-3.2,width:X(1,2,2026)-X(1,1,2026),height:6.4,fill:C.month,rx:3.2,stroke:C.surf,"stroke-width":1},g)}
   const grp=el("g",{class:"ev",tabindex:0,role:"button","aria-label":e.d+": "+e.t},g);
   e.node=grp;
   const col=colOf(e);
   if(e.dotOnly){
-   el("circle",{class:"dot",cx:a,cy:AX,r:3,fill:col},grp);el("circle",{class:"hit",cx:a,cy:AX,r:7},grp);el("title",{},grp,e.d+": "+e.t);
+   el("circle",{class:"hit",cx:a,cy:AX,r:7},grp);el("circle",{class:"dot",cx:a,cy:AX,r:3.4,fill:col,stroke:C.surf,"stroke-width":1.2},grp);el("title",{},grp,e.d+": "+e.t);
   }else{
    const ax=e.month?a+(X(1,2,2026)-X(1,1,2026))/2:a;
    const up=e.row==="A",yTop=up?AX-POLE[e.row]:AX+POLE[e.row];
-   el("line",{x1:ax,x2:ax,y1:AX,y2:yTop,stroke:col,"stroke-width":.8},grp);
-   if(!e.month)el("circle",{class:"dot",cx:a,cy:AX,r:3,fill:col},grp);
+   const hit=el("rect",{class:"hit",rx:3},grp);
+   el("line",{x1:ax,x2:ax,y1:AX,y2:yTop,stroke:col,"stroke-width":.6,"stroke-dasharray":"1.4 1.2"},grp);
+   el("circle",{cx:ax,cy:yTop,r:1.3,fill:col},grp);
+   if(!e.month)el("circle",{class:"dot",cx:a,cy:AX,r:3.8,fill:col,stroke:C.surf,"stroke-width":1.3},grp);
    const all=[e.d].concat(e.lines),n=all.length;
    let x,anchor,y0;
-   if(e.o==="C"){x=ax;anchor="middle";y0=up?yTop-3-(n-1)*lh:yTop+font+2}
-   else{x=e.o==="L"?ax-2.4:ax+2.4;anchor=e.o==="L"?"end":"start";y0=up?yTop-lh*(n-1)+font*.9:yTop+font*.9}
+   if(e.o==="C"){x=ax;anchor="middle";y0=up?yTop-3.5-(n-1)*lh:yTop+font+2.5}
+   else{x=e.o==="L"?ax-3.2:ax+3.2;anchor=e.o==="L"?"end":"start";y0=up?yTop-lh*(n-1)+font*.9:yTop+font*.9}
    const t=el("text",{x:x,y:y0,"text-anchor":anchor,"font-size":font,class:"lbl"},grp);
    all.forEach((s,i)=>{const ts=el("tspan",{x:x,dy:i?lh:0},t,s);if(i===0){ts.setAttribute("font-weight","700");ts.style.fill=e.plan?C.plan:C.brand}});
    const bb=t.getBBox();
-   el("rect",{class:"hit",x:Math.min(bb.x,ax)-2,y:Math.min(bb.y,up?yTop:AX)-2,width:Math.max(bb.x+bb.width,ax)-Math.min(bb.x,ax)+4,height:Math.max(bb.y+bb.height,up?AX:yTop)-Math.min(bb.y,up?yTop:AX)+4,rx:2},grp);
+   const hx=Math.min(bb.x,ax)-3,hy=Math.min(bb.y,up?yTop:AX)-2.5;
+   hit.setAttribute("x",hx);hit.setAttribute("y",hy);hit.setAttribute("width",Math.max(bb.x+bb.width,ax)+3-hx);hit.setAttribute("height",Math.max(bb.y+bb.height,up?AX:yTop)+2.5-hy);
   }
   grp.addEventListener("click",()=>show(e));
   grp.addEventListener("keydown",k=>{if(k.key==="Enter"||k.key===" "){k.preventDefault();show(e)}});
@@ -422,6 +445,16 @@ function show(e){
 /* ---------- tabela ---------- */
 const ICON={y:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 7"/></svg>',n:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>'};
 const COLS=["PL","DE","BE","FR","UK"],COLREF={PL:[1,4],DE:[4,5,6],BE:[5,7],FR:[4,7,8],UK:[4,6,7,9]};
+const REFS={
+ 1:["Analiza własna dokumentacji PAZ:",U.info,"Informacja nt. projektu PAZ (MZ, gov.pl)","https://web.archive.org/web/20250525225754/https://www.gov.pl/web/zdrowie/informacja-nt-projektu-portfel-aplikacji-zdrowotnych-paz"],
+ 4:["van Kessel R. i wsp.","https://doi.org/10.2196/49003","JMIR Mhealth Uhealth 2023;11:e49003"],
+ 5:["Tran V.T. i wsp.","https://doi.org/10.1177/20552076261458023","Digit Health 2026;12"],
+ 6:["Kim M., Kim G.","https://doi.org/10.1177/00469580261467451","Inquiry 2026;63"],
+ 7:["Mezei F. i wsp.","https://doi.org/10.3389/fpubh.2023.1197949","Front Public Health 2023;11:1197949"],
+ 8:["ANS,","https://esante.gouv.fr","Mon espace santé, catalogue de services"],
+ 9:["NHS,","https://www.nhs.uk/apps-library/","The NHS Apps Library has closed"]
+};
+const PROG={PL:["Portfel Aplikacji Zdrowotnych (MZ, gov.pl)",U.main,"https://web.archive.org/web/20260923212212/https://www.gov.pl/web/zdrowie/portfel-aplikacji-zdrowotnych"],DE:["DiGA-Verzeichnis (BfArM)","https://diga.bfarm.de"],BE:["mHealthBelgium","https://mhealthbelgium.be"],FR:["PECAN (HAS)","https://www.has-sante.fr/jcms/p_3376633/fr/dispositifs-medicaux-numeriques-la-prise-en-charge-anticipee"],UK:["NICE Evidence Standards Framework","https://www.nice.org.uk/corporate/ecd7"]};
 const TNOTE={
  "PL|Możliwa refundacja aplikacji przez płatnika":"Wzór umowy PAZ: bez wynagrodzenia dla właściciela aplikacji i bez zakupu przez płatnika.",
  "PL|Dedykowana ścieżka refundacji aplikacji":"Program nie przewidywał ścieżki finansowania aplikacji.",
@@ -445,15 +478,18 @@ const TNOTE={
    const f=()=>{if(cur)cur.classList.remove("sel");cur=cell;cell.classList.add("sel");
     td.style.display="block";td.innerHTML="";const b=document.createElement("b");b.textContent=c+", "+crit.toLowerCase()+": "+txt;td.appendChild(b);
     const note=TNOTE[c+"|"+crit];if(note){const q=document.createElement("div");q.style.marginTop=".4rem";q.textContent=note;td.appendChild(q)}
-    const p=document.createElement("div");p.className="d-src";p.appendChild(document.createTextNode("Źródła: "));
-    COLREF[c].forEach((n,k)=>{if(k)p.appendChild(document.createTextNode(", "));const a=document.createElement("a");a.href="#zr-"+n;a.textContent="["+n+"]";p.appendChild(a)});
-    td.appendChild(p)};
+    const pg=PROG[c],pp=document.createElement("div");pp.className="d-src";pp.appendChild(document.createTextNode("Strona programu: "));pp.appendChild(link(pg[1],pg[0]));
+    if(pg[2]){pp.appendChild(document.createTextNode(" ("));pp.appendChild(link(pg[2],"archiwum"));pp.appendChild(document.createTextNode(")"))}td.appendChild(pp);
+    const p=document.createElement("div");p.className="d-src";p.appendChild(document.createTextNode("Źródła:"));const ul=document.createElement("ul");ul.style.margin=".2rem 0 0";
+    COLREF[c].forEach(n=>{const r=REFS[n],li=document.createElement("li");li.style.margin=".15rem 0";li.appendChild(document.createTextNode("["+n+"] "+r[0]+" "));li.appendChild(link(r[1],r[2]));if(r[3]){li.appendChild(document.createTextNode(" ("));li.appendChild(link(r[3],"archiwum"));li.appendChild(document.createTextNode(")"))}ul.appendChild(li)});
+    p.appendChild(ul);td.appendChild(p)};
    cell.onclick=f;cell.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}}})});})();
 
 /* ---------- NASSS ---------- */
 const FI={bar:'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--color-bar)"/><path d="M5.5 10h9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>',
  ena:'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--color-ena)"/><path d="M5.5 10h9M10 5.5v9" stroke="var(--color-surface)" stroke-width="2.4" stroke-linecap="round"/></svg>',
  none:'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="var(--color-none)"/><circle cx="10" cy="10" r="3.6" fill="none" stroke="var(--color-surface)" stroke-width="2.2"/></svg>'};
+const srcUrl=u=>(ARCH[u]&&ARCH[u].indexOf("/web/*/")<0)?ARCH[u]:u;
 const FL={bar:"Bariera",ena:"Czynnik sprzyjający",none:"Brak czynników ograniczających"};
 const NSRC={"3":["wzór umowy i regulamin PAZ",U.main],"4":["strona i aktualności PAZ",U.akt],"5":["strona PAZ",U.main],"6":["strona PAZ i informacja o projekcie",U.info],"7":["informacja o zakończeniu naboru",U.end]};
 const DOM=[
@@ -469,8 +505,10 @@ const DOM=[
  [["1","Stan kliniczny"],["2","Technologia"]].forEach(d=>{const c=h("div","dom na");c.innerHTML='<span class="num">'+d[0]+'</span>'+d[1]+'<span class="visually-hidden"> (nie analizowano)</span>';c.setAttribute("aria-label","Domena "+d[0]+", "+d[1]+": nie analizowano");gr.appendChild(c)});
  DOM.forEach(d=>{const c=h("article","dom"+(d.wide?" d7":""));
   const hd=h("div","dh");hd.innerHTML='<span class="num">'+d.n+'</span>';hd.appendChild(document.createTextNode(d.name));c.appendChild(hd);
-  d.f.forEach(f=>{const r=h("div","f",FI[f[0]]);const s=document.createElement("span");s.innerHTML='<span class="visually-hidden">'+FL[f[0]]+': </span>';s.appendChild(document.createTextNode(f[1]));r.appendChild(s);c.appendChild(r)});
-  const sr=NSRC[d.n];if(sr){const q=h("div","dsrc");q.appendChild(document.createTextNode("Źródło: "));q.appendChild(link(sr[1],sr[0]));q.appendChild(document.createTextNode(" ("));q.appendChild(link(arch(sr[1]),"archiwum"));q.appendChild(document.createTextNode(")"));c.appendChild(q)}
+  const sr=NSRC[d.n];
+  d.f.forEach(f=>{const r=h("div","f",FI[f[0]]);const s=document.createElement("span");s.innerHTML='<span class="visually-hidden">'+FL[f[0]]+': </span>';
+   if(sr){const a=link(srcUrl(sr[1]),f[1]);a.className="flink";a.title="Źródło: "+sr[0];s.appendChild(a)}else s.appendChild(document.createTextNode(f[1]));
+   r.appendChild(s);c.appendChild(r)});
   gr.appendChild(c)});
 })();
 
